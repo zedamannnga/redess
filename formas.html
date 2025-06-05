@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formas Geométricas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      background: #fff3e0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      background-color: #ffb74d;
+      margin: 0;
+      padding: 20px;
+      color: #ffffff;
+    }
+    .formas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 30px;
+    }
+    .forma {
+      width: 150px;
+      height: 150px;
+      background-color: #ffe0b2;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+    .forma:hover {
+      transform: scale(1.05);
+    }
+    .circle {
+      border-radius: 50%;
+      background-color: #81d4fa;
+    }
+    .square {
+      background-color: #aed581;
+    }
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 75px solid transparent;
+      border-right: 75px solid transparent;
+      border-bottom: 130px solid #f06292;
+      background-color: transparent;
+    }
+    .triangle-label {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f06292;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aprenda as Formas!</h1>
+
+  <div class="formas-container">
+    <div class="forma circle" onclick="dizer('Círculo')">Círculo</div>
+    <div class="forma square" onclick="dizer('Quadrado')">Quadrado</div>
+    <div>
+      <div class="triangle" onclick="dizer('Triângulo')"></div>
+      <div class="triangle-label">Triângulo</div>
+    </div>
+  </div>
+
+  <script>
+    function dizer(texto) {
+      const fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = 'pt-BR';
+      speechSynthesis.speak(fala);
+    }
+  </script>
+</body>
+</html>

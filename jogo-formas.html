@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo das Formas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff8e1;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #fbc02d;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .descricao {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #795548;
+    }
+
+    .formas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 30px;
+    }
+
+    .forma {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .forma:hover {
+      transform: scale(1.1);
+    }
+
+    .circle {
+      background-color: #ff8a65;
+      border-radius: 50%;
+    }
+
+    .square {
+      background-color: #4fc3f7;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 120px solid #aed581;
+      background: none;
+    }
+
+    .resultado {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo das Formas</h1>
+  <div class="descricao" id="dica">Qual forma é redonda?</div>
+
+  <div class="formas-container">
+    <div class="forma square" onclick="verificarResposta('quadrado')"></div>
+    <div class="forma triangle" onclick="verificarResposta('triangulo')"></div>
+    <div class="forma circle" onclick="verificarResposta('circulo')"></div>
+  </div>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    function verificarResposta(resposta) {
+      const correta = "circulo";
+      const resultado = document.getElementById("resultado");
+      if (resposta === correta) {
+        resultado.innerText = "Parabéns! Você acertou!";
+        resultado.style.color = "green";
+      } else {
+        resultado.innerText = "Ops! Tente novamente.";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
